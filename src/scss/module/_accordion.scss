@@ -1,0 +1,24 @@
+.accordion {
+  &-title {
+    padding : 2rem 1.4rem;
+    background-color : #0080ff;
+    color : #fff;
+    cursor : pointer;
+  }
+
+  &-body {
+    visibility : hidden;
+    opacity : 0;
+    background-color : #f9f9f9;
+    line-height : 0;
+    transition : all .3s ease, line-height .1s ease .2s; // 閉じるとき
+
+    .is-open & {
+      visibility : visible;
+      opacity : 1;
+      padding : 1rem 5px;
+      line-height : inherit;
+      transition : all .3s ease;
+    }
+  }
+}
