@@ -1,0 +1,1 @@
+Element.prototype.toggleClass=function(t){this.classList.contains(t)?this.classList.remove(t):this.classList.add(t)},document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelectorAll(".dk-accordion");t.forEach(t=>{const e=t.querySelector(".dk-accordion-title");e.addEventListener("click",()=>{t.toggleClass("is-open")})})});

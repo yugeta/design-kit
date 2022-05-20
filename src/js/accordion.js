@@ -6,11 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const accordionTitle = accordion.querySelector(".dk-accordion-title");
 
     accordionTitle.addEventListener("click", () => {
-      if (accordion.classList.contains(toggleClass)) {
-        accordion.classList.remove(toggleClass);
-      } else {
-        accordion.classList.add(toggleClass);
-      }
+      accordion.toggleClass(toggleClass);
     });
   });
 });
