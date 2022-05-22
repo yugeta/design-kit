@@ -6,7 +6,7 @@
         "../../src/scss/_variables.scss",
         "../../src/scss/base/_base.scss",
         "../../src/scss/module/_accordion.scss",
-        "../../src/scss/module/_fade.scss"
+        "../../src/scss/module/_modal.scss"
     ],
     "names": [],
     "file": "style.css"
