@@ -1,31 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const className = 'dk-modal-fade-in';
+  const className = 'dk-modal-action';
   const fadeInActions = document.querySelectorAll("." + className);
 
   fadeInActions.forEach((fadeInAction) => {
-    fadeInAction.addEventListener('click', fadeIn);
+    fadeInAction.addEventListener('click', fadeInModal);
   });
 });
 
 /**
- * dk-modal-fade-inクラスを持つ要素の直後にある
- * dk-modal-fade-in-windowクラスを持つ要素および
- * dk-modal-fade-in-windowクラスの子要素かつ
- * dk-modal-fade-in-bodyクラスを持つ要素を
+ * dk-modalクラスを持つ要素の直後にある
+ * dk-modal-windowクラスを持つ要素および
+ * dk-modal-windowクラスの子要素かつ
+ * dk-modal-bodyクラスを持つ要素を
  * フェードインさせます。
- * dk-modal-fade-in-windowクラスを持つ
+ * dk-modal-windowクラスを持つ
  * 要素に対しフェードアウトイベントを付加します。
  */
-function fadeIn() {
-  const className = 'dk-modal-fade-in-window';
+function fadeInModal() {
+  const className = 'dk-modal-window';
   const target = this.nextElementSibling;
 
   if (target != null && (target.classList.contains(className))) {
-    classOperate_fade(target, 'remove', 'is-close')
-    classOperate_fade(target, 'add', 'is-open')
+    classOperateModal(target, 'remove', 'is-close')
+    classOperateModal(target, 'add', 'is-open')
     target.addEventListener('click', function () {
-      classOperate_fade(target, 'remove', 'is-open')
-      classOperate_fade(target, 'add', 'is-close')
+      classOperateModal(target, 'remove', 'is-open')
+      classOperateModal(target, 'add', 'is-close')
     });
   }
 }
@@ -38,8 +38,8 @@ function fadeIn() {
  * @param {string} operate クラスに対する処理を指定します。(add/remove)
  * @param {string} className 追加/削除するクラス名を指定します。(is-open/is-close)
  */
-function classOperate_fade(target, operate, className) {
-  const childClassName = 'dk-modal-fade-in-body';
+function classOperateModal(target, operate, className) {
+  const childClassName = 'dk-modal-body';
   const targetChilds = target.querySelectorAll('.' + childClassName);
   if (operate === 'add') {
     target.classList.add(className);

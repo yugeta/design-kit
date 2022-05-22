@@ -23,17 +23,17 @@
 
 <body style="width: 80%; margin: 5rem auto 0;">
 
-  <h1>フェードイン</br>フェードアウト</br>サンプル</h1>
-  <a href="javascript:void(0);" class="dk-modal-fade-in">フェードイン</a>
-  <div class="dk-modal-fade-in-window">
-    FadeInWindow
-    <div class="dk-modal-fade-in-body">
-      FadeInBody
+  <h1>モーダルサンプル</h1>
+  <a href="javascript:void(0);" class="dk-modal-action">モーダルを開く</a>
+  <div class="dk-modal-window">
+    ModalWindow
+    <div class="dk-modal-body">
+      ModalBody
     </div>
   </div>
   <p>
     <a href="javascript:void(0);" onclick="addAttribute();" class="add-dom">
-      要素追加
+      モーダル要素追加
     </a>
   </p>
 
@@ -50,20 +50,20 @@
 
       var newActionDom = document.createElement("a");
       newActionDom.href = "javascript:void(0);";
-      newActionDom.classList.add('dk-modal-fade-in');
-      newActionDom.textContent = '追加要素 ' + num;
-      newActionDom.addEventListener('click', fadeIn);
+      newActionDom.classList.add('dk-modal-action');
+      newActionDom.textContent = 'モーダル要素 ' + num;
+      newActionDom.addEventListener('click', fadeInModal);
       newP.appendChild(newActionDom);
 
       var newDom = document.createElement("div");
-      newDom.classList.add('dk-modal-fade-in-window');
-      newDom.textContent = 'FadeInWindow' + num;
+      newDom.classList.add('dk-modal-window');
+      newDom.textContent = 'ModalWindow' + num;
       newP.appendChild(newDom);
 
       var newDomChild = document.createElement("div");
-      newDomChild.classList.add('dk-modal-fade-in-body');
+      newDomChild.classList.add('dk-modal-body');
       newDomChild.classList.add('sample');
-      newDomChild.textContent = 'FadeInBody' + num;
+      newDomChild.textContent = 'ModalBody' + num;
       newDom.appendChild(newDomChild);
 
     }
