@@ -1,2 +1,145 @@
-*{margin:0;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box}html{font-size:16px}body{line-height:1.6}img{max-width:100%;height:auto}ul{list-style-type:none}.accordion-title{padding:2rem 1.4rem;background-color:#0080ff;color:#fff;cursor:pointer}.accordion-body{visibility:hidden;opacity:0;background-color:#f9f9f9;line-height:0;-webkit-transition:all .3s ease, line-height .1s ease .2s;transition:all .3s ease, line-height .1s ease .2s}.is-open .accordion-body{visibility:visible;opacity:1;padding:1rem 5px;line-height:inherit;-webkit-transition:all .3s ease;transition:all .3s ease}
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 16px; }
+
+body {
+  line-height: 1.6; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+ul {
+  list-style-type: none; }
+
+.accordion-title {
+  padding: 2rem 1.4rem;
+  background-color: #0080ff;
+  color: #fff;
+  cursor: pointer; }
+.accordion-body {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #f9f9f9;
+  line-height: 0;
+  transition: all .3s ease, line-height .1s ease .2s; }
+  .is-open .accordion-body {
+    visibility: visible;
+    opacity: 1;
+    padding: 1rem 5px;
+    line-height: inherit;
+    transition: all .3s ease; }
+
+/**
+ * Date   : 2022.05.22
+ * Author : Yugeta.Koji
+ * URL    : https://myntinc.com
+ */
+/* Common */
+body {
+  margin: 0;
+  background-color: rgba(0, 0, 255, 0.05); }
+
+header * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+header a {
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  padding: 5px; }
+
+/* 変数 */
+.dk-hamburger-menu {
+  --hamburger-width: 25px;
+  --hamburger-size: 2px;
+  --hamburger-padding: 10px;
+  --hamburger-space: 5px;
+  --nav-width: 150px;
+  --menu-speed: 0.3s; }
+
+/* Icon */
+.dk-hamburger {
+  display: block;
+  width: var(--hamburger-width);
+  cursor: pointer;
+  padding-top: var(--hamburger-padding);
+  margin: 0 8px; }
+
+.dk-hamburger > span,
+.dk-hamburger > span::before,
+.dk-hamburger > span::after {
+  content: '';
+  background-color: black;
+  display: block;
+  width: 100%;
+  height: var(--hamburger-size);
+  transition-property: transform;
+  transition-duration: var(--menu-speed); }
+
+.dk-hamburger > span {
+  position: relative;
+  margin: var(--hamburger-space) 0; }
+
+.dk-hamburger > span::before {
+  position: absolute;
+  bottom: calc(var(--hamburger-space) + var(--hamburger-size)); }
+
+.dk-hamburger > span::after {
+  position: absolute;
+  top: calc(var(--hamburger-space) + var(--hamburger-size)); }
+
+/* menu */
+.dk-hamburger-menu .dk-menu {
+  display: flex;
+  height: 100%;
+  transform: translateX(calc(var(--nav-width) * -1));
+  transition-duration: var(--menu-speed);
+  transition-property: transform box-shadow; }
+
+.dk-hamburger-menu .dk-menu ul {
+  display: block;
+  width: var(--nav-width);
+  background-color: white;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition-property: left;
+  transition-duration: var(--menu-speed);
+  box-shadow: 0; }
+
+.dk-hamburger-menu .dk-menu ul > *:nth-of-type(1n) {
+  border-top: 1px solid #ddd;
+  margin-bottom: 8px; }
+
+/* Toggle-switch */
+#hamburger_toggle_menu {
+  display: none; }
+
+#hamburger_toggle_menu:checked ~ .dk-menu .dk-hamburger > span {
+  background-color: rgba(0, 0, 0, 0); }
+
+#hamburger_toggle_menu:checked ~ .dk-menu .dk-hamburger > span::before {
+  bottom: 0;
+  transform: rotate(45deg); }
+
+#hamburger_toggle_menu:checked ~ .dk-menu .dk-hamburger > span::after {
+  top: 0;
+  transform: rotate(-45deg); }
+
+#hamburger_toggle_menu:checked ~ .dk-menu {
+  transform: translateX(0); }
+
+#hamburger_toggle_menu:checked ~ .dk-menu > ul {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); }
+
 /*# sourceMappingURL=style.css.map */
