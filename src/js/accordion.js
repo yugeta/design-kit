@@ -1,17 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const accordions = document.querySelectorAll(".accordion");
+  const accordions = document.querySelectorAll(".dk-accordion");
   const toggleClass = "is-open";
 
   accordions.forEach((accordion) => {
-    const accordionTitle = accordion.querySelector(".accordion-title");
+    const accordionTitle = accordion.querySelector(".dk-accordion-title");
 
     accordionTitle.addEventListener("click", () => {
-      // 判定条件のクラスを持っているか?
-      if (accordion.classList.contains(toggleClass)) {
-        accordion.classList.remove(toggleClass);
-      } else {
-        accordion.classList.add(toggleClass);
-      }
+      accordion.toggleClass(toggleClass);
     });
   });
 });
