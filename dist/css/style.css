@@ -35,6 +35,53 @@ ul {
     line-height: inherit;
     transition: all .3s ease; }
 
+.dk-modal-window {
+  display: none;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(105, 105, 105, 0.7);
+  z-index: 10; }
+  .dk-modal-window.is-open {
+    display: flex;
+    animation: modalOpenAnimation 0.3s ease; }
+  .dk-modal-window.is-close {
+    display: flex;
+    bottom: 100%;
+    animation: modalBGCloseAnimation 0.2s ease; }
+.dk-modal-body {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11; }
+  .dk-modal-body.is-open {
+    display: flex;
+    animation: modalOpenAnimation 0.3s ease; }
+  .dk-modal-body.is-close {
+    display: flex;
+    animation: modalCloseAnimation 0.2s ease; }
+@keyframes modalOpenAnimation {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes modalBGCloseAnimation {
+  0% {
+    opacity: 1;
+    bottom: 0; }
+  100% {
+    opacity: 0;
+    bottom: 0; } }
+@keyframes modalCloseAnimation {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 /**
  * Date   : 2022.05.22
  * Author : Yugeta.Koji

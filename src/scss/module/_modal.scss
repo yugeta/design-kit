@@ -1,0 +1,81 @@
+.#{$prefix}modal {
+  $modal-color: rgba(105, 105, 105, 0.7);
+  $open-sec: 0.3s;
+  $close-sec: 0.2s;
+  &-window {
+    //window初期値
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $modal-color;
+    z-index: 10;
+    &.is-open {
+      //windowを開いた際
+      display: flex;
+      animation: modalOpenAnimation $open-sec ease;
+    }
+    &.is-close {
+      //windowを閉じた際
+      //display:noneではフェードアウトを表現できないため
+      //animation終了後画面外に飛ばす
+      display: flex;
+      bottom: 100%;
+      animation: modalBGCloseAnimation $close-sec ease;
+    }
+  }
+  &-body {
+    //body初期値
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    &.is-open {
+      //bodyを開いた際
+      display: flex;
+      animation: modalOpenAnimation $open-sec ease;
+    }
+    &.is-close {
+      //bodyを閉じた際
+      display: flex;
+      animation: modalCloseAnimation $close-sec ease;
+    }
+  }
+
+  @keyframes modalOpenAnimation {
+    //windowおよびbodyの表示アニメーション
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes modalBGCloseAnimation {
+    //windowの非表示アニメーション
+    0% {
+      opacity: 1;
+      bottom: 0;
+    }
+    100% {
+      opacity: 0;
+      bottom: 0;
+    }
+  }
+
+  @keyframes modalCloseAnimation {
+    //bodyの非表示アニメーション
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
