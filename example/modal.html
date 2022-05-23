@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style type="text/css">
+    .sample {
+      width: 300px;
+      min-height: 220px;
+      background: #fff;
+      border: 3px solid #79b3ff;
+      border-radius: 10px;
+      font-size: 16pt;
+      text-align: center;
+    }
+  </style>
+
+  <link rel="stylesheet" href="../dist/css/style.css">
+</head>
+
+<body style="width: 80%; margin: 5rem auto 0;">
+
+  <h1>モーダルサンプル</h1>
+  <a href="javascript:void(0);" class="dk-modal-action">モーダルを開く</a>
+  <div class="dk-modal-window">
+    ModalWindow
+    <div class="dk-modal-body">
+      ModalBody
+    </div>
+  </div>
+  <p>
+    <a href="javascript:void(0);" onclick="addAttribute();" class="add-dom">
+      モーダル要素追加
+    </a>
+  </p>
+
+  <script src="../dist/js/script.js"></script>
+  <script>
+    var num = 0;
+
+    function addAttribute() {
+      num++;
+      var target = document.getElementsByTagName("body");
+
+      var newP = document.createElement("p");
+      target[0].appendChild(newP);
+
+      var newActionDom = document.createElement("a");
+      newActionDom.href = "javascript:void(0);";
+      newActionDom.classList.add('dk-modal-action');
+      newActionDom.textContent = 'モーダル要素 ' + num;
+      newActionDom.addEventListener('click', fadeInModal);
+      newP.appendChild(newActionDom);
+
+      var newDom = document.createElement("div");
+      newDom.classList.add('dk-modal-window');
+      newDom.textContent = 'ModalWindow' + num;
+      newP.appendChild(newDom);
+
+      var newDomChild = document.createElement("div");
+      newDomChild.classList.add('dk-modal-body');
+      newDomChild.classList.add('sample');
+      newDomChild.textContent = 'ModalBody' + num;
+      newDom.appendChild(newDomChild);
+
+    }
+  </script>
+</body>
+
+</html>
